@@ -1,5 +1,7 @@
 from config import Conf
 import os
+
+from utils.AssertUtils import AssertUtil
 from utils.YamlUtil import YamlReader
 import pytest
 from config.Conf import ConfigYaml
@@ -11,7 +13,7 @@ test_file = os.path.join(Conf.get_config_file(), "conf.yml")
 
 
 # 2、参数化执行测试用例
-def test_yaml():
+def test_topic_index_page():
     # 初始化url,data
     url = ConfigYaml().get_conf_url() + "/topics"
     print("url %s" % url)
@@ -27,6 +29,8 @@ def test_yaml():
     res = request.get(url, json=data)
     # 打印结果
     print(res)
+    code = res["code"]
+    AssertUtil().assert_code(code=code, expected_code=200)
 
 
 if __name__ == "__main__":

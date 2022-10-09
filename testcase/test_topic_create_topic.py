@@ -1,6 +1,8 @@
 import common.topics as comm
 from config import Conf
 import os
+
+from utils.AssertUtils import AssertUtil
 from utils.YamlUtil import YamlReader
 import pytest
 from config.Conf import ConfigYaml
@@ -12,7 +14,7 @@ test_file = os.path.join(Conf.get_config_file(), "conf.yml")
 
 
 # 2、参数化执行测试用例
-def test_yaml():
+def test_topic_create_topic():
     # 初始化url,data,token
     token = comm.get_token()
     url = ConfigYaml().get_conf_url() + "/topics"
@@ -27,6 +29,8 @@ def test_yaml():
     # post请求
     request = Request()
     res = request.post(url, json=data)
+    code = res["code"]
+    AssertUtil().assert_code(code=code, expected_code=200)
     # 打印结果
     print(res)
 

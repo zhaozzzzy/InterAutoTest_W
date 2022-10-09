@@ -23,6 +23,7 @@ def test_b():
     assert 1  # 断言成功
 
 
+# 增加注解
 @pytest.mark.flaky(reruns=3, reruns_delay=2)
 def test_c():
     print("----test_c----")

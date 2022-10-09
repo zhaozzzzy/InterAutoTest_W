@@ -1,7 +1,6 @@
 import os
 import pytest
 
-from common import Base
 from config import Conf
 
 
