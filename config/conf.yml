@@ -1,0 +1,10 @@
+BASE:
+ # 测试用例
+ test:
+  # url
+  url: http://47.100.175.62:3000/api/v1
+ # 日志
+ # log等级
+ log_level: "debug"
+ # 扩展名
+ log_extension: ".log"
