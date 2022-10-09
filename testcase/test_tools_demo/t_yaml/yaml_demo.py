@@ -8,7 +8,7 @@
 # 1）、导入yaml包
 import yaml
 # 2）、打开文件 encodin  g="utf-8"
-with open("./data.yaml","r",encoding="utf-8") as f:
+with open("data.yaml", "r", encoding="utf-8") as f:
 # 3）、使用yaml读取文件
    r = yaml.safe_load(f)
 # 3、输出这个文件内容

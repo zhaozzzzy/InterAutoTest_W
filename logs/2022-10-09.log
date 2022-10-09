@@ -1,0 +1,8 @@
+2022-10-09 17:22:21,045 F:\研究生学习资料\个人学习资料\pytest\project\InterAutoTest_W\utils\temp.py DEBUG this is a debug 
+2022-10-09 17:24:58,499 F:\研究生学习资料\个人学习资料\pytest\project\InterAutoTest_W\utils\temp.py DEBUG this is a debug 
+2022-10-09 17:35:43,242 F:\研究生学习资料\个人学习资料\pytest\project\InterAutoTest_W\utils\temp.py DEBUG this is a debug 
+2022-10-09 17:37:48,890 F:\研究生学习资料\个人学习资料\pytest\project\InterAutoTest_W\utils\LogUtil.py DEBUG this is a debug 
+2022-10-09 17:38:19,272 F:\研究生学习资料\个人学习资料\pytest\project\InterAutoTest_W\utils\LogUtil.py DEBUG this is a debug 
+2022-10-09 18:12:20,920 Requests DEBUG 发送get请求 
+2022-10-09 18:21:32,181 Requests DEBUG 发送post请求 
+2022-10-09 18:28:08,584 Requests DEBUG 发送post请求 
