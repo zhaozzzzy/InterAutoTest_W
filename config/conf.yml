@@ -3,6 +3,8 @@ BASE:
  test:
   # url
   url: http://47.100.175.62:3000/api/v1
+  # token
+  token: bfd17478-46b8-48a4-9939-e34bf6a25882
  # 日志
  # log等级
  log_level: "debug"

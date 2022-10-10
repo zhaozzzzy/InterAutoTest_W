@@ -3,7 +3,7 @@
 测试url：http://47.100.175.62:3000
 """
 import requests
-import common.topics as comm
+import common.Topics as comm
 from config.Conf import ConfigYaml
 from utils.LogUtil import my_log
 

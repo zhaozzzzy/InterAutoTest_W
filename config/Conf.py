@@ -59,6 +59,7 @@ class ConfigYaml:
     # 初始yaml读取配置文件
     def __init__(self):
         self.config = YamlReader(get_config_file()).data()
+        self.db_config = YamlReader(get_db_config_file()).data()
 
     # get信息函数
     def get_excel_file(self):
@@ -91,6 +92,8 @@ class ConfigYaml:
     def get_db_conf_info(self, db_alias):
         """
         根据db_alias获取该名称下的数据库信息
+        :param db_alias:
+        :return:
         """
         return self.db_config[db_alias]
 
@@ -100,10 +103,17 @@ class ConfigYaml:
         :return:
         """
         return self.config["email"]
+    def get_token(self):
+        """
+        获取token
+        :return:
+        """
+        return self.config["BASE"]["test"]["token"]
 
 
 if __name__ == "__main__":
     conf_read = ConfigYaml()
-    # print(conf_read.get_conf_url())
+    print(conf_read.get_conf_url())
     print(conf_read.get_conf_log_level())
     print(conf_read.get_conf_log_extension())
+    print(conf_read.get_db_conf_info("db"))

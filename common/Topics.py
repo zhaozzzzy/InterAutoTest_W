@@ -33,7 +33,7 @@ def create_topic(topic_data):
 
 
 def get_token():
-    return "bfd17478-46b8-48a4-9939-e34bf6a25882"
+    return conf_yaml.get_token()
 
 
 """
@@ -48,16 +48,16 @@ def topic_detail(id):
     return requests.get(url)
 
 # if __name__ == '__main__':
-#     topic_data = {
-#         "accesstoken": "bfd17478-46b8-48a4-9939-e34bf6a25882",
-#         "title": "我是田所浩二",
-#         "tab": "ask",
-#         "content": "哼哼啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
-#     }
-#     r1 = create_topic(topic_data)
-#     print(r1)
-#     id_ = r1.json()['topic_id']
-#     print(id_)
-#     r2 = topic_detail(id=id_)
-#     print(r2)
+    # topic_data = {
+    #     "accesstoken": "bfd17478-46b8-48a4-9939-e34bf6a25882",
+    #     "title": "我是田所浩二",
+    #     "tab": "ask",
+    #     "content": "哼哼啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
+    # }
+    # r1 = create_topic(topic_data)
+    # print(r1)
+    # id_ = r1.json()['topic_id']
+    # print(id_)
+    # r2 = topic_detail(id=id_)
+    # print(r2)
 

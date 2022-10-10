@@ -1,8 +1,8 @@
-import common.topics as comm
+import common.Topics as comm
 from config import Conf
 import os
 
-from utils.AssertUtils import AssertUtil
+from utils.AssertUtil import AssertUtil
 from utils.YamlUtil import YamlReader
 import pytest
 from config.Conf import ConfigYaml
