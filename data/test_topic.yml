@@ -1,0 +1,26 @@
+# 主题测试用例
+---
+#测试用例名称
+"case_name": "创建成功用例"
+#url地址
+"url": "/topics/"
+#data
+"data":
+  accesstoken: "bfd17478-46b8-48a4-9939-e34bf6a25882"
+  title: "我是田所浩二"
+  tab: "ask"
+  content: "哼哼啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
+#期望结果
+"expect": '"success": true'
+---
+"case_name": "创建失败用例"
+#url地址
+"url": "/topics/"
+#data
+"data":
+  accesstoken: "123456"
+  title: "我是田所浩二"
+  tab: "ask"
+  content: "哼哼啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
+  #期望结果
+"expect": '"success": False, "error_msg": "错误的accessToken"'

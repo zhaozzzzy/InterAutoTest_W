@@ -30,7 +30,10 @@ def test_topic_index_page():
     # 打印结果
     print(res)
     code = res["code"]
+    body = res["body"]
+    print(body)
     AssertUtil().assert_code(code=code, expected_code=200)
+    AssertUtil().assert_in_body(body=body, expected_body='"success": true')
 
 
 if __name__ == "__main__":
