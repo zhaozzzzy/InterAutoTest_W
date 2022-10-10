@@ -1,12 +1,16 @@
 BASE:
- # 测试用例
- test:
-  # url
-  url: http://47.100.175.62:3000/api/v1
-  # token
-  token: bfd17478-46b8-48a4-9939-e34bf6a25882
- # 日志
- # log等级
- log_level: "debug"
- # 扩展名
- log_extension: ".log"
+  # 测试用例
+  test:
+    # url
+    url: http://47.100.175.62:3000/api/v1
+    # token
+    token: bfd17478-46b8-48a4-9939-e34bf6a25882
+    # 测试用例文件
+    case_file: "../data/testdata.xlsx"
+    # 测试xlsx表格名称
+    case_sheet: "test"
+  # 日志
+  # log等级
+  log_level: "debug"
+  # 扩展名
+  log_extension: ".log"
