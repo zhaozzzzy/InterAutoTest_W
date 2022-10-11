@@ -6,6 +6,8 @@ import xlrd
 # 自定义异常
 class SheetTypeError:
     pass
+
+
 # 1、验证文件是否存在，存在读取，不存在报错
 class ExcelReader:
     def __init__(self, excel_file, sheet_by):
@@ -38,7 +40,7 @@ class ExcelReader:
                 # 2 与首组成字典，放list
                 col_value = sheet.row_values(col)
                 self._data.append(dict(zip(title, col_value)))
-    # 4、结果返回
+        # 4、结果返回
         return self._data
 
 
