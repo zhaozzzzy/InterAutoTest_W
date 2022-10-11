@@ -136,40 +136,13 @@ class TestExcel:
             # 前置测试用例
             pre_case = data_init.get_case_pre(pre_exec)
             print("前置条件信息为：%s" % pre_case)
-            # 3、替换topic
+            # 3、替换topic_id
             topic_id = "634427d3fe5e85471ce08a32"
             # print(topic)
-            params = Base.res_sub(params,topic_id)
+            params = Base.res_sub(params, topic_id)
             # print(params)
-            res = self.run_api(url, method, params)
-            print("测试用例执行：%s" % res)
-
-        # res = self.run_api(url, method, params)
-        # print("测试用例执行：%s" % res)
-        # 发送获取前置测试用例，用例结果
-        # 数据初始化，get/post，重构
-        # 4、替换topic变量
-        # 4.1、验证请求中是否${}$，返回${}$内容
-
-        # 4.2、根据变量结果内容，替换
-        # 5、请求发送
-
-        # # 接口请求
-        # request = Request()
-        # # #params 转义json
-        # # 验证params有没有内容
-        # if len(str(params).strip()) is not 0:
-        #     params = json.loads(params)
-        # print(params)
-        # # method post/get
-        # if str(method).lower() == "get":
-        #     # 2.增加Headers
-        #     res = request.get(url, json=params, headers=headers, cookies=cookies)
-        # elif str(method).lower() == "post":
-        #     res = request.post(url, json=params, headers=headers, cookies=cookies)
-        # else:
-        #     log.error("错误请求method: %s" % method)
-        # print(res)
+        res = self.run_api(url, method, params)
+        print("测试用例执行：%s" % res)
 
 
 if __name__ == '__main__':
