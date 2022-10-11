@@ -81,6 +81,24 @@ def params_find(param):
     return param
 
 
+def allure_report(report_path, report_html):
+    """
+    生成allure 报告
+    :param report_path:
+    :param report_html:
+    :return:
+    """
+    # 执行命令 allure generate
+    allure_cmd = "allure generate %s -o %s --clean" % (report_path, report_html)
+    # subprocess.call
+    log.info("报告地址")
+    try:
+        subprocess.call(allure_cmd, shell=True)
+    except:
+        log.error("执行用例失败，请检查一下测试环境相关配置")
+        raise
+
+
 if __name__ == '__main__':
     pass
     print(res_find('${topic_id}$'))

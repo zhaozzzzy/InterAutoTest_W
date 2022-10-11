@@ -3,14 +3,15 @@
 import json
 import os
 
+import allure
 import pytest
-
 from common import ExcelConfig, Base
 from common.ExcelData import Data
 from config import Conf
 from config.Conf import ConfigYaml
 from utils.LogUtil import my_log
 from utils.RequestsUtil import Request
+from utils.AssertUtil import AssertUtil
 
 case_file = os.path.join(Conf.get_data_path(), ConfigYaml().get_excel_file())
 # 2）.测试用例sheet名称
@@ -58,19 +59,9 @@ class TestExcel:
         params = pre_case[data_key.params]
         headers = pre_case[data_key.headers]
         cookies = pre_case[data_key.cookies]
-        # 1.判断headers是否存在，json转义，无需
-        # if headers:
-        #     header = json.loads(headers)
-        # else:
-        #     header = headers
         header = Base.json_parse(data=headers)
-        # 3.增加cookies
-        # if cookies:
-        #     cookie = json.loads(cookies)
-        # else:
-        #     cookie = cookies
         cookie = Base.json_parse(cookies)
-        res = self.run_api(url, method, params, header)
+        res = self.run_api(url, method, params)
         print("前置用例执行：%s" % res)
         return res
 
@@ -126,9 +117,8 @@ class TestExcel:
         cookies = case[data_key.cookies]
         code = case[data_key.code]
         db_verify = case[data_key.db_verify]
-        topic = None
 
-        # 动态关联
+        # 动态关联：更新主题用例
         # 1、验证前置条件
         if pre_exec:
             pass
@@ -144,6 +134,34 @@ class TestExcel:
         res = self.run_api(url, method, params)
         print("测试用例执行：%s" % res)
 
+        # allure
+        # sheet名称  feature 一级标签
+        allure.dynamic.feature(sheet_name)
+        # 模块   story 二级标签
+        allure.dynamic.story(case_model)
+        # 用例ID+接口名称  title
+        allure.dynamic.title(case_id + case_name)
+        # 请求URL  请求类型 期望结果 实际结果描述
+        desc = "<font color='red'>请求URL: </font> {}<Br/>" \
+               "<font color='red'>请求类型: </font>{}<Br/>" \
+               "<font color='red'>期望结果: </font>{}<Br/>" \
+               "<font color='red'>实际结果: </font>{}".format(url, method, expect_result, res)
+        allure.dynamic.description(desc)
+
+
+        # 断言验证
+        # 状态码，返回结果内容，数据库相关的结果的验证
+        # 状态码
+        assert_util = AssertUtil()
+        assert_util.assert_code(int(res["code"]), int(code))
+        # 返回结果内容
+        assert_util.assert_in_body(str(res["body"]), str(expect_result))
+        # 数据库结果断言
+        # Base.assert_db("db", res["body"], db_verify)
+
 
 if __name__ == '__main__':
-    pytest.main(["-s", "test_excel_case.py"])
+    # pytest.main(["-s", "test_excel_case.py"])
+    report_path = Conf.get_report_path() + os.sep + "result"
+    report_html_path = Conf.get_report_path() + os.sep + "html"
+    pytest.main(["-s", "test_excel_case.py", "--alluredir", report_path])
