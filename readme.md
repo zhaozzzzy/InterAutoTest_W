@@ -1,4 +1,4 @@
-### README
+### 基于pytest的网页接口测试
 - config：存放配置文件
 - common：存放业务代码
 - data：存放测试数据
